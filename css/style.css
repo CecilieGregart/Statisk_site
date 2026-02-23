@@ -4,3 +4,71 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* ========== Base ========== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #eef5ef; /* lys pastelgrøn */
+  color: #132016; /* mørk grøn tekst */
+}
+
+/* ========== Header ========== */
+.header {
+  padding: 1rem;
+  background-color: #d9eadb; /* lidt mørkere pastel */
+  border-bottom: 1px solid #c6ddc9;
+}
+
+.logo {
+  margin: 0;
+}
+
+/* ========== Layout ========== */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+/* ========== Grid ========== */
+.category_list_container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr); /* mobil/tablet */
+}
+
+/* Desktop - (2 rækker af 3) */
+@media (min-width: 800px) {
+  .category_list_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ========== Cards ========== */
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.3rem;
+  background-color: #ffffff;
+  border: 1px solid #cfe0d2;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #132016;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  background-color: #e6f1e7;
+  transform: translateY(-2px);
+}
