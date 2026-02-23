@@ -1,10 +1,76 @@
 <!doctype html>
-<html lang="en">
+<html lang="da">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Produktliste</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Product list</title>
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
-  <body></body>
+
+  <body>
+    <header class="header">
+      <h1 class="logo">FashionRus</h1>
+    </header>
+
+    <main class="container">
+      <a href="index.html" class="backlink">← Tilbage</a>
+      <h2>Accessories</h2>
+
+      <section class="product_list_container">
+        <!-- 1) Tilbud -->
+        <a class="product_card discount" href="product.html">
+          <img
+            src="https://kea-alt-del.dk/t7/images/webp/640/1532.webp"
+            alt="Product image"
+          />
+          <h3>Unisex Logo Cap</h3>
+          <p class="brand">Puma</p>
+          <p class="price">
+            <span class="old_price">699 kr.</span>
+            <span class="new_price">499 kr.</span>
+          </p>
+          <span class="tag">Tilbud</span>
+        </a>
+
+        <!-- 2) Udsolgt -->
+        <a class="product_card soldout" href="product.html">
+          <img
+            src="https://kea-alt-del.dk/t7/images/webp/640/1525.webp"
+            alt="Product image"
+          />
+          <h3>Deck Navy India Backpack</h3>
+          <p class="brand">Puma</p>
+          <p class="price">1299 kr.</p>
+          <span class="tag">Udsolgt</span>
+        </a>
+
+        <!-- 3) Tilbud + Udsolgt -->
+        <a class="product_card discount soldout" href="product.html">
+          <img
+            src="https://kea-alt-del.dk/t7/images/webp/640/1164.webp"
+            alt="Product image"
+          />
+          <h3>Big Cat Backpack Black</h3>
+          <p class="brand">Puma</p>
+          <p class="price">
+            <span class="old_price">1299 kr.</span>
+            <span class="new_price">899 kr.</span>
+          </p>
+          <span class="tag">Tilbud</span>
+          <span class="tag">Udsolgt</span>
+        </a>
+
+        <!-- 4) Normal -->
+        <a class="product_card" href="product.html">
+          <img
+            src="https://kea-alt-del.dk/t7/images/webp/640/1165.webp"
+            alt="Product image"
+          />
+          <h3>Water Bottle</h3>
+          <p class="brand">Nike</p>
+          <p class="price">149 kr.</p>
+        </a>
+      </section>
+    </main>
+  </body>
 </html>
