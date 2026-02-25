@@ -7,9 +7,16 @@
 
 /* ========== BASE ========== */
 body {
-  font-family: system-ui, sans-serif;
+  font-family: "Lora", serif;
   background-color: #eef5ef;
   color: #132016;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Lora", serif;
+  letter-spacing: 0.02em;
 }
 
 /* ========== HEADER ========== */
@@ -23,75 +30,29 @@ body {
   margin: 0;
 }
 
-/* ========== LAYOUT ========== */
-.container {
-  width: 92%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2.5rem 0;
-}
-
-h2 {
-  margin-bottom: 1.2rem;
-  text-align: center;
-  letter-spacing: 0.05em;
-  color: #1f3a28; /* mørkere grøn */
-  font-size: 1.5rem;
-}
-
 .logo img {
   height: 60px;
   width: auto;
   display: block;
 }
 
-/* ========== GRID ========== */
-.category_list_container {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(2, 1fr);
+/* ========== LAYOUT ========== */
+.container {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 
-/* Desktop: 2 rækker med 3 */
-@media (min-width: 800px) {
-  .category_list_container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
-  }
+h2 {
+  margin-bottom: 1.2rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #1f3a28;
+  font-size: 1.5rem;
 }
 
-/* ========== CARDS ========== */
-.card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 86px;
-  padding: 0 1.2rem;
-
-  background: #e6f4ea; /* 🌿 tydelig lys grøn */
-  border: 1px solid #c3ddc9;
-  border-radius: 10px;
-
-  text-decoration: none;
-  color: #132016;
-  font-weight: 600;
-  transition: 0.18s ease;
-}
-
-@media (min-width: 800px) {
-  .card {
-    height: 92px; /* en anelse højere på desktop */
-    font-size: 1rem;
-  }
-}
-
-.card:hover {
-  background: #cfe9d6; /* mørkere grøn hover */
-  transform: translateY(-2px);
-}
-
-/* ================= BACK BUTTON ================= */
+/* ========== BACK BUTTON ========== */
 .backlink {
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -111,12 +72,49 @@ h2 {
   transform: translateY(-1px);
 }
 
-/* ================= BASE ================= */
-.container {
-  width: 92%;
-  max-width: 1200px; /* lidt bredere end før */
-  margin: auto;
-  padding: 2rem 0;
+/* ========== CATEGORIES GRID ========== */
+.category_list_container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 800px) {
+  .category_list_container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+}
+
+/* ========== CATEGORY CARDS ========== */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 86px;
+  padding: 0 1.2rem;
+
+  background: #e6f4ea;
+  border: 1px solid #c3ddc9;
+  border-radius: 10px;
+
+  text-decoration: none;
+  color: #132016;
+  font-weight: 600;
+  transition: 0.18s ease;
+}
+
+@media (min-width: 800px) {
+  .card {
+    height: 92px;
+    font-size: 1rem;
+  }
+}
+
+.card:hover {
+  background: #cfe9d6;
+  transform: translateY(-2px);
 }
 
 /* ================= PRODUCT LIST ================= */
@@ -132,8 +130,7 @@ h2 {
   }
 }
 
-/* ================= PRODUCT CARD ================= */
-/* Fjernet grøn card look */
+/* PRODUCT CARD */
 .product_card {
   background: transparent;
   border: 0;
@@ -147,19 +144,19 @@ h2 {
   transform: translateY(-3px);
 }
 
-/* ================= IMAGE ================= */
+/* IMAGE */
 .img_wrap {
   position: relative;
 }
 
 .img_wrap img {
   width: 100%;
-  height: 320px; /* større = mere desktop feel */
+  height: 320px;
   object-fit: cover;
   display: block;
 }
 
-/* ================= SOLD OUT BADGE ================= */
+/* SOLD OUT BADGE */
 .soldout_badge {
   position: absolute;
   top: 12px;
@@ -171,13 +168,13 @@ h2 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 
-  background: #6f6f6f; /* matte grå */
+  background: #6f6f6f;
   color: #ffffff;
 
   border-radius: 6px;
 }
 
-/* ================= TEXT ================= */
+/* TEXT */
 .product_card h3,
 .product_card .brand,
 .product_card .price {
@@ -195,7 +192,7 @@ h2 {
   opacity: 0.7;
 }
 
-/* ================= PRICE ================= */
+/* PRICE */
 .price {
   margin-bottom: 0.6rem;
   display: flex;
@@ -214,7 +211,7 @@ h2 {
   font-weight: 700;
 }
 
-/* Discount styling */
+/* KUN rabat = red */
 .product_card.discount .new_price {
   color: #e53935;
 }
@@ -226,7 +223,6 @@ h2 {
 }
 
 /* ================= PRODUCT PAGE ================= */
-
 .product_page {
   display: grid;
   gap: 2rem;
@@ -239,17 +235,7 @@ h2 {
   }
 }
 
-/* BACK BUTTON */
-.backlink {
-  display: inline-block;
-  margin-bottom: 1rem;
-  text-decoration: none;
-  font-weight: 600;
-  color: #2f4736;
-}
-
-/* ================= IMAGE ================= */
-
+/* IMAGE */
 .product_media {
   position: relative;
 }
@@ -260,7 +246,7 @@ h2 {
   display: block;
 }
 
-/* Discount badge (bund venstre) */
+/* Discount badge */
 .product_discount {
   position: absolute;
   bottom: 14px;
@@ -275,26 +261,22 @@ h2 {
   border-radius: 6px;
 }
 
-/* ================= INFO ================= */
-
+/* INFO */
 .product_info {
   padding-top: 0.4rem;
 }
 
-/* Titel */
 .product_title {
   margin: 0 0 0.3rem;
   font-size: 1.6rem;
-  text-align: left; /* vigtig */
+  text-align: left;
 }
 
-/* Brand */
 .product_brand {
   margin: 0 0 0.8rem;
   opacity: 0.65;
 }
 
-/* Pris */
 .product_price {
   margin: 0 0 1rem;
   font-size: 1.1rem;
@@ -303,18 +285,7 @@ h2 {
   align-items: baseline;
 }
 
-.old_price {
-  text-decoration: line-through;
-  opacity: 0.5;
-}
-
-.new_price {
-  color: #e53935;
-  font-weight: 700;
-}
-
-/* ================= META INFO ================= */
-
+/* META */
 .product_meta {
   margin: 1.2rem 0 1.4rem;
 }
@@ -335,17 +306,7 @@ h2 {
   margin: 0;
 }
 
-/* Stock badge */
-.stock {
-  font-weight: 600;
-}
-
-.in_stock {
-  color: #2f4736;
-}
-
-/* ================= BUTTON ================= */
-
+/* BUTTON */
 .add_to_basket {
   margin-top: 0.6rem;
   width: 100%;
