@@ -1,25 +1,21 @@
-/* Reset */
+/* ========== RESET ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-/* ========== Base ========== */
-* {
-  box-sizing: border-box;
-}
 
+/* ========== BASE ========== */
 body {
-  margin: 0;
   font-family: system-ui, sans-serif;
-  background-color: #eef5ef; /* lys pastelgrøn */
-  color: #132016; /* mørk grøn tekst */
+  background-color: #eef5ef;
+  color: #132016;
 }
 
-/* ========== Header ========== */
+/* ========== HEADER ========== */
 .header {
   padding: 1rem;
-  background-color: #d9eadb; /* lidt mørkere pastel */
+  background-color: #d9eadb;
   border-bottom: 1px solid #c6ddc9;
 }
 
@@ -27,51 +23,68 @@ body {
   margin: 0;
 }
 
-/* ========== Layout ========== */
+/* ========== LAYOUT ========== */
 .container {
-  width: 90%;
-  max-width: 1000px;
-  margin: auto;
-  padding: 2rem 0;
+  width: 92%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 0;
 }
 
 h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #1f3a28; /* mørkere grøn */
+  font-size: 1.5rem;
 }
 
-/* ========== Grid ========== */
+/* ========== GRID ========== */
 .category_list_container {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(2, 1fr); /* mobil/tablet */
+  grid-template-columns: repeat(2, 1fr);
 }
 
-/* Desktop - (2 rækker af 3) */
+/* Desktop: 2 rækker med 3 */
 @media (min-width: 800px) {
   .category_list_container {
     grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
   }
 }
 
-/* ========== Cards ========== */
+/* ========== CARDS ========== */
 .card {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 1.3rem;
-  background-color: #ffffff;
-  border: 1px solid #cfe0d2;
-  border-radius: 12px;
+  justify-content: center;
+
+  height: 86px;
+  padding: 0 1.2rem;
+
+  background: #e6f4ea; /* 🌿 tydelig lys grøn */
+  border: 1px solid #c3ddc9;
+  border-radius: 10px;
+
   text-decoration: none;
   color: #132016;
   font-weight: 600;
-  transition: 0.2s ease;
+  transition: 0.18s ease;
+}
+
+@media (min-width: 800px) {
+  .card {
+    height: 92px; /* en anelse højere på desktop */
+    font-size: 1rem;
+  }
 }
 
 .card:hover {
-  background-color: #e6f1e7;
+  background: #cfe9d6; /* mørkere grøn hover */
   transform: translateY(-2px);
 }
+
 /* ================= BACK BUTTON ================= */
 .backlink {
   display: inline-block;
@@ -92,12 +105,19 @@ h2 {
   transform: translateY(-1px);
 }
 
+/* ================= BASE ================= */
+.container {
+  width: 92%;
+  max-width: 1200px; /* lidt bredere end før */
+  margin: auto;
+  padding: 2rem 0;
+}
+
 /* ================= PRODUCT LIST ================= */
 .product_list_container {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: min-content;
 }
 
 @media (min-width: 800px) {
@@ -106,123 +126,237 @@ h2 {
   }
 }
 
-/* Card */
+/* ================= PRODUCT CARD ================= */
+/* Fjernet grøn card look */
 .product_card {
-  background: #ffffff;
-  border: 1px solid #cfe0d2;
-  border-radius: 12px;
-  padding: 0.8rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
   text-decoration: none;
   color: #132016;
-  transition: 0.2s ease;
-
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 4; /* img + title + brand + price */
+  transition: transform 0.2s ease;
 }
 
 .product_card:hover {
-  transform: translateY(-2px);
-  background: #e6f1e7;
+  transform: translateY(-3px);
 }
 
-/* IMAGE + BADGES */
+/* ================= IMAGE ================= */
 .img_wrap {
   position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 0.4rem;
 }
 
 .img_wrap img {
   width: 100%;
-  height: 240px;
+  height: 320px; /* større = mere desktop feel */
   object-fit: cover;
   display: block;
-  position: relative;
-  z-index: 0;
 }
 
-.badge {
-  position: absolute;
-  padding: 0.35rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1;
-  z-index: 2;
-}
-
-/* DISCOUNT: top-right */
-.discount_badge {
-  top: 10px;
-  right: 10px;
-  background: #e53935;
-  color: #fff;
-}
-
-/* SOLD OUT: centered */
+/* ================= SOLD OUT BADGE ================= */
 .soldout_badge {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 12px;
+  left: 12px;
 
-  width: 120px;
-  padding: 8px 10px;
-  border-radius: 8px;
-
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-
-  color: #222;
+  padding: 8px 14px;
+  font-size: 0.85rem;
   font-weight: 800;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 
-  text-align: center;
-  line-height: 1.1;
-  white-space: nowrap;
+  background: #6f6f6f; /* matte grå */
+  color: #ffffff;
+
+  border-radius: 6px;
 }
 
-/* SOLD OUT overlay */
-.product_card.soldout .img_wrap::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.55);
-  z-index: 1;
+/* ================= TEXT ================= */
+.product_card h3,
+.product_card .brand,
+.product_card .price {
+  padding: 0 0.2rem;
 }
 
-/* SOLD OUT image treatment */
-.product_card.soldout .img_wrap img {
-  filter: grayscale(75%) contrast(0.9) brightness(1.05);
-}
-
-/* TEXT */
 .product_card h3 {
-  margin: 0.4rem 0 0.15rem;
+  margin: 0.6rem 0 0.15rem;
   font-size: 1rem;
 }
 
-/* BRAND */
 .brand {
-  margin: 0 0 0.35rem;
+  margin-bottom: 0.35rem;
   font-size: 0.85rem;
-  opacity: 0.65;
+  opacity: 0.7;
 }
 
+/* ================= PRICE ================= */
 .price {
-  margin-top: 0;
-  font-weight: 700;
+  margin-bottom: 0.6rem;
+  display: flex;
+  gap: 0.4rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+  font-weight: 600;
 }
 
 .old_price {
   text-decoration: line-through;
   opacity: 0.5;
-  margin-right: 0.5rem;
 }
 
 .new_price {
-  font-weight: 800;
+  font-weight: 700;
+}
+
+/* Discount styling */
+.product_card.discount .new_price {
+  color: #e53935;
+}
+
+.discount_text {
+  color: #e53935;
+  font-weight: 700;
+  margin-left: auto;
+}
+
+/* ================= PRODUCT PAGE ================= */
+
+.product_page {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 800px) {
+  .product_page {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: start;
+  }
+}
+
+/* BACK BUTTON */
+.backlink {
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: #2f4736;
+}
+
+/* ================= IMAGE ================= */
+
+.product_media {
+  position: relative;
+}
+
+.product_media img {
+  width: 100%;
+  border-radius: 14px;
+  display: block;
+}
+
+/* Discount badge (bund venstre) */
+.product_discount {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+
+  background: #f4f4f4;
+  color: #e53935;
+
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 5px 9px;
+  border-radius: 6px;
+}
+
+/* ================= INFO ================= */
+
+.product_info {
+  padding-top: 0.4rem;
+}
+
+/* Titel */
+.product_title {
+  margin: 0 0 0.3rem;
+  font-size: 1.6rem;
+  text-align: left; /* vigtig */
+}
+
+/* Brand */
+.product_brand {
+  margin: 0 0 0.8rem;
+  opacity: 0.65;
+}
+
+/* Pris */
+.product_price {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.old_price {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.new_price {
+  color: #e53935;
+  font-weight: 700;
+}
+
+/* ================= META INFO ================= */
+
+.product_meta {
+  margin: 1.2rem 0 1.4rem;
+}
+
+.meta_row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.product_meta dt {
+  font-weight: 700;
+  opacity: 0.75;
+}
+
+.product_meta dd {
+  margin: 0;
+}
+
+/* Stock badge */
+.stock {
+  font-weight: 600;
+}
+
+.in_stock {
+  color: #2f4736;
+}
+
+/* ================= BUTTON ================= */
+
+.add_to_basket {
+  margin-top: 0.6rem;
+  width: 100%;
+
+  padding: 0.9rem;
+  border-radius: 12px;
+  border: 0;
+
+  background: linear-gradient(90deg, #132016, #2f4736);
+  color: #fff;
+
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.add_to_basket:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
