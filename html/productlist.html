@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Lora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Product list</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
@@ -17,58 +24,54 @@
       <h2>Accessories</h2>
 
       <section class="product_list_container">
-        <!-- 1) Tilbud -->
-        <a class="product_card discount" href="product.html">
-          <img
-            src="https://kea-alt-del.dk/t7/images/webp/640/1532.webp"
-            alt="Product image"
-          />
-          <h3>Unisex Logo Cap</h3>
-          <p class="brand">Puma</p>
-          <p class="price">
-            <span class="old_price">699 kr.</span>
-            <span class="new_price">499 kr.</span>
-          </p>
-          <span class="tag">Tilbud</span>
-        </a>
-
-        <!-- 2) Udsolgt -->
-        <a class="product_card soldout" href="product.html">
-          <img
-            src="https://kea-alt-del.dk/t7/images/webp/640/1525.webp"
-            alt="Product image"
-          />
-          <h3>Deck Navy India Backpack</h3>
-          <p class="brand">Puma</p>
-          <p class="price">1299 kr.</p>
-          <span class="tag">Udsolgt</span>
-        </a>
-
-        <!-- 3) Tilbud + Udsolgt -->
-        <a class="product_card discount soldout" href="product.html">
-          <img
-            src="https://kea-alt-del.dk/t7/images/webp/640/1164.webp"
-            alt="Product image"
-          />
-          <h3>Big Cat Backpack Black</h3>
-          <p class="brand">Puma</p>
-          <p class="price">
-            <span class="old_price">1299 kr.</span>
-            <span class="new_price">899 kr.</span>
-          </p>
-          <span class="tag">Tilbud</span>
-          <span class="tag">Udsolgt</span>
-        </a>
-
-        <!-- 4) Normal -->
+        <!-- 1) NORMAL -->
         <a class="product_card" href="product.html">
-          <img
-            src="https://kea-alt-del.dk/t7/images/webp/640/1165.webp"
-            alt="Product image"
-          />
-          <h3>Water Bottle</h3>
+          <div class="img_wrap">
+            <img src="../img/smykker.jpg" alt="Øreringe" />
+          </div>
+          <h3>Øreringe</h3>
+          <p class="brand">Pilgrim</p>
+          <p class="price">399 kr.</p>
+        </a>
+
+        <!-- 2) TILBUD (25%) -->
+        <a class="product_card discount" href="product.html">
+          <div class="img_wrap">
+            <img src="../img/taske.jpg" alt="Taske" />
+            <span class="badge discount_badge">25%</span>
+          </div>
+          <h3>Taske</h3>
+          <p class="brand">H&M</p>
+          <p class="price">
+            <span class="old_price">899 kr.</span>
+            <span class="new_price">699 kr.</span>
+          </p>
+        </a>
+
+        <!-- 3) SOLD OUT -->
+        <a class="product_card soldout" href="product.html">
+          <div class="img_wrap">
+            <img src="../img/totebag.jpg" alt="Tote Bag" />
+            <span class="badge soldout_badge">SOLD OUT</span>
+          </div>
+          <h3>Tote Bag</h3>
           <p class="brand">Nike</p>
           <p class="price">149 kr.</p>
+        </a>
+
+        <!-- 4) TILBUD (30%) + SOLD OUT -->
+        <a class="product_card discount soldout" href="product.html">
+          <div class="img_wrap">
+            <img src="../img/baelte.jpg" alt="Bælte" />
+            <span class="badge discount_badge">30%</span>
+            <span class="badge soldout_badge">SOLD OUT</span>
+          </div>
+          <h3>Bælte</h3>
+          <p class="brand">Levi’s</p>
+          <p class="price">
+            <span class="old_price">349 kr.</span>
+            <span class="new_price">249 kr.</span>
+          </p>
         </a>
       </section>
     </main>
