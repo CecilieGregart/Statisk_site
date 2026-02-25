@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="da">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,8 +10,60 @@
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Lora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Produkt</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Product</title>
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
-  <body></body>
+
+  <body>
+    <header class="header">
+      <h1 class="logo">FashionRus</h1>
+    </header>
+
+    <main class="container">
+      <a href="productlist.html" class="backlink">← Back</a>
+
+      <section class="product_page">
+        <!-- Image -->
+        <div class="product_media">
+          <img src="../img/taske.jpg" alt="Bag" />
+          <span class="product_discount">25%</span>
+        </div>
+
+        <!-- Info -->
+        <div class="product_info">
+          <h2 class="product_title">Bag</h2>
+          <p class="product_brand">H&amp;M</p>
+
+          <p class="product_price">
+            <span class="old_price">DKK 899</span>
+            <span class="new_price">DKK 699</span>
+          </p>
+
+          <dl class="product_meta">
+            <div class="meta_row">
+              <dt>Category</dt>
+              <dd>Accessories</dd>
+            </div>
+
+            <div class="meta_row">
+              <dt>Color</dt>
+              <dd>Beige</dd>
+            </div>
+
+            <div class="meta_row">
+              <dt>Size</dt>
+              <dd>One size</dd>
+            </div>
+
+            <div class="meta_row">
+              <dt>Stock</dt>
+              <dd><span class="stock in_stock">In stock</span></dd>
+            </div>
+          </dl>
+
+          <button class="add_to_basket" type="button">Add to basket</button>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
