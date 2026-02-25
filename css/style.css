@@ -39,6 +39,12 @@ h2 {
   font-size: 1.5rem;
 }
 
+.logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
 /* ========== GRID ========== */
 .category_list_container {
   display: grid;
