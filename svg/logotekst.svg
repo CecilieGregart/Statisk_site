@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 411.47 122.64">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Impact, Impact;
+        font-size: 68px;
+        isolation: isolate;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #0b2a19;
+      }
+
+      .cls-2 {
+        font-family: SnellRoundhand, 'Snell Roundhand';
+        font-size: 95px;
+        letter-spacing: .03em;
+      }
+
+      .cls-3 {
+        letter-spacing: .03em;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(6.3 75.05)"><tspan class="cls-4" x="0" y="0">F</tspan><tspan class="cls-3" x="27.67" y="0">ASHION</tspan></text>
+  <text class="cls-2" transform="translate(235.72 101.97)"><tspan x="0" y="0">Rus</tspan></text>
+</svg>
