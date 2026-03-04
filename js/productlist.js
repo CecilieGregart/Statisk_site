@@ -23,10 +23,14 @@ function showProducts(products) {
 
   products.forEach((product) => {
     markup += `
-      <a class="product_card" href="product.html?id=${product.id}">
+      <a class="product_card ${product.soldout ? "soldOut" : ""}" href="product.html?id=${product.id}">
         <h3>${product.productdisplayname}</h3>
         <p>${product.brandname}</p>
         <p>${product.price} kr</p>
+
+        ${product.discount ? `<span class="discount">${product.discount}%</span>` : ""}
+
+        ${product.soldout ? `<span class="soldout_badge">SOLD OUT</span>` : ""}
       </a>
     `;
   });
