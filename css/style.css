@@ -138,6 +138,8 @@ h2 {
   text-decoration: none;
   color: #132016;
   transition: transform 0.2s ease;
+
+  position: relative; /* NY – gør at badges placeres på kortet */
 }
 
 .product_card:hover {
@@ -158,19 +160,17 @@ h2 {
 
 /* SOLD OUT BADGE */
 .soldout_badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-
-  padding: 8px 14px;
-  font-size: 0.85rem;
+  position: static;
+  display: inline-block;
+  margin: 0.35rem 0 0; /* lidt luft */
+  padding: 6px 10px;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 
   background: #6f6f6f;
   color: #ffffff;
-
   border-radius: 6px;
 }
 
