@@ -8,31 +8,70 @@ document.querySelector("h2").textContent = category;
 // 3. Byg endpoint med category
 const endpoint = `https://kea-alt-del.dk/t7/api/products?category=${category}&limit=30`;
 
-// Gem alle produkter her -  filtrere dem
-let allProducts = [];
+// Gem alle data + det aktuelle "udsnit" (bruges til filtrering + sortering)
+let allData = [];
+let udsnit = [];
 
 // 4. Fetch produkter
 fetch(endpoint)
   .then((res) => res.json())
-  .then((products) => {
-    allProducts = products;
-    showProducts(allProducts);
+  .then((data) => {
+    allData = data;
+    udsnit = [...allData]; // kopi (så vi har et "udsnit" at arbejde med)
+    showProducts(udsnit);
   });
 
-// Filtrering (trin 2)
-document.querySelectorAll(".filter_btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const filter = btn.textContent; // "All", "Men", "Women", "Unisex"
-    if (filter === "All") {
-      showProducts(allProducts);
-    } else {
-      const filtered = allProducts.filter(
-        (product) => product.gender === filter,
-      );
-      showProducts(filtered);
-    }
-  });
+// ===== Filtrering =====
+// vælg alle filterknapper og sæt click eventlistener på hver
+document.querySelectorAll(".filter_btn").forEach((knap) => {
+  knap.addEventListener("click", filtrer);
 });
+
+function filtrer(e) {
+  const valgt = e.target.textContent; // "All", "Men", "Women", "Unisex"
+
+  if (valgt === "All") {
+    udsnit = [...allData]; // vis alle (kopi)
+  } else {
+    udsnit = allData.filter((element) => element.gender === valgt); // filtrer
+  }
+
+  showProducts(udsnit); // vis filtrerede produkter
+}
+
+// ===== Sortering =====
+// vælg alle sorter-knapper og sæt click eventlistener på hver
+document.querySelectorAll("#sorter button").forEach((knap) => {
+  knap.addEventListener("click", sorter);
+});
+
+function sorter(e) {
+  const knap = e.target;
+
+  // Her tjekker vi om der skal sorteres efter tekst eller pris
+  if (knap.dataset.text) {
+    // Sortering på navn (A-Z / Z-A)
+    if (knap.dataset.text === "az") {
+      udsnit = [...udsnit].sort((a, b) =>
+        a.productdisplayname.localeCompare(b.productdisplayname),
+      );
+    } else {
+      udsnit = [...udsnit].sort((a, b) =>
+        b.productdisplayname.localeCompare(a.productdisplayname),
+      );
+    }
+  } else if (knap.dataset.price) {
+    // Sortering på pris (lav-høj / høj-lav)
+    if (knap.dataset.price === "up") {
+      udsnit = [...udsnit].sort((a, b) => a.price - b.price);
+    } else {
+      udsnit = [...udsnit].sort((a, b) => b.price - a.price);
+    }
+  }
+
+  // Vis det sorterede udsnit
+  showProducts(udsnit);
+}
 
 // 5. Funktion der viser produkter
 function showProducts(products) {
@@ -50,7 +89,6 @@ function showProducts(products) {
         <p>${product.price} kr</p>
 
         ${product.discount ? `<span class="discount">${product.discount}%</span>` : ""}
-
         ${product.soldout ? `<span class="soldout_badge">SOLD OUT</span>` : ""}
       </a>
     `;
